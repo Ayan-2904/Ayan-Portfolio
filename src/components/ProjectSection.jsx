@@ -180,7 +180,8 @@ const techStack = {
     { name: "PostgreSQL", icon: <SiPostgresql className="text-[#D4AF37]" /> },
   ],
   tools: [
-    { name: "Git & GitHub", icon: <FaGithub className="dark:text-portfolio-text" /> },
+      { name: "Figma", icon: <FaFigma className="text-[#F24E1E]" /> },
+      { name: "Git & GitHub", icon: <FaGithub className="dark:text-portfolio-text" /> },
     { name: "AWS", icon: <FaAws className="text-[#FF9900]" /> },
     { name: "Docker", icon: <FaTools className="text-[#D4AF37]" /> },
   ],
@@ -524,7 +525,7 @@ const CertificatePreviewModal = ({ certificate, onClose }) => {
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.9, opacity: 0, y: 50 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="relative max-w-4xl w-full bg-portfolio-surface/95 backdrop-blur-xl rounded-3xl border border-portfolio-gold/50 shadow-[0_0_40px_rgba(212,175,55,0.2)] overflow-hidden flex flex-col md:flex-row"
+        className="relative max-w-4xl w-[calc(100%-2rem)] max-h-[90vh] overflow-y-auto bg-portfolio-surface/95 backdrop-blur-xl rounded-3xl border border-portfolio-gold/50 shadow-[0_0_40px_rgba(212,175,55,0.2)] flex flex-col md:flex-row"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -578,6 +579,24 @@ const CertificatePreviewModal = ({ certificate, onClose }) => {
 // ===================================
 function ProjectSection() {
   const [activeTab, setActiveTab] = useState('Projects');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#certificates') {
+        setActiveTab('Certificate');
+      } else if (window.location.hash === '#projects') {
+        setActiveTab('Projects');
+      }
+    };
+    
+    if (window.location.hash === '#certificates') {
+        setActiveTab('Certificate');
+    }
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const [projectCategory, setProjectCategory] = useState('Web/Apps');
   const [previewCertificate, setPreviewCertificate] = useState(null);
   const [previewProject, setPreviewProject] = useState(null); // ✨ NEW STATE
@@ -772,7 +791,7 @@ function ProjectSection() {
               {projectsFromDB.length === 0 && (
                 <div className="flex justify-center gap-4 mb-8">
                   <button className={`px-5 py-2 rounded-full font-semibold transition-all duration-200 border ${projectCategory === 'Web/Apps' ? 'bg-portfolio-gold/80 text-portfolio-text border-portfolio-gold shadow-portfolio-gold/10 shadow-lg' : 'bg-portfolio-bg/60 text-portfolio-gold border-portfolio-border hover:bg-portfolio-gold/40 hover:text-portfolio-text'}`} onClick={() => setProjectCategory('Web/Apps')}>Web/Apps</button>
-                  <button className={`px-5 py-2 rounded-full font-semibold transition-all duration-200 border ${projectCategory === '3D Design' ? 'bg-portfolio-gold/80 text-portfolio-text border-portfolio-gold shadow-portfolio-gold/10 shadow-lg' : 'bg-portfolio-bg/60 text-portfolio-gold border-portfolio-border hover:bg-portfolio-gold/40 hover:text-portfolio-text'}`} onClick={() => setProjectCategory('3D Design')}>3D Design</button>
+                  <button className={`px-5 py-2 rounded-full font-semibold transition-all duration-200 border ${projectCategory === 'UI/UX Design' ? 'bg-portfolio-gold/80 text-portfolio-text border-portfolio-gold shadow-portfolio-gold/10 shadow-lg' : 'bg-portfolio-bg/60 text-portfolio-gold border-portfolio-border hover:bg-portfolio-gold/40 hover:text-portfolio-text'}`} onClick={() => setProjectCategory('UI/UX Design')}>UI/UX Design</button>
                 </div>
               )}
 

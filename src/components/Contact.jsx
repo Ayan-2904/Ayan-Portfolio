@@ -179,7 +179,7 @@ const Contact = () => {
                         placeholder="Your Name"
                         value={contactForm.name}
                         onChange={(e) => setContactForm(prev => ({ ...prev, name: e.target.value }))}
-                        className="w-full pl-12 pr-4 py-4 bg-portfolio-gold/10 border border-portfolio-gold/30 rounded-xl text-portfolio-text dark:placeholder-slate-400 placeholder-slate-400 focus:border-portfolio-gold focus:ring-2 focus:ring-portfolio-gold/40 transition-all duration-300"
+                        className="w-full min-w-0 pl-12 pr-4 py-4 bg-portfolio-gold/10 border border-portfolio-gold/30 rounded-xl text-portfolio-text dark:placeholder-slate-400 placeholder-slate-400 focus:border-portfolio-gold focus:ring-2 focus:ring-portfolio-gold/40 transition-all duration-300"
                         required
                       />
                     </div>
@@ -193,7 +193,7 @@ const Contact = () => {
                         placeholder="Your Email"
                         value={contactForm.email}
                         onChange={(e) => setContactForm(prev => ({ ...prev, email: e.target.value }))}
-                        className="w-full pl-12 pr-4 py-4 bg-portfolio-gold/10 border border-portfolio-gold/30 rounded-xl text-portfolio-text dark:placeholder-slate-400 placeholder-slate-500 focus:border-portfolio-gold focus:ring-2 focus:ring-portfolio-gold/40 transition-all duration-300"
+                        className="w-full min-w-0 pl-12 pr-4 py-4 bg-portfolio-gold/10 border border-portfolio-gold/30 rounded-xl text-portfolio-text dark:placeholder-slate-400 placeholder-slate-500 focus:border-portfolio-gold focus:ring-2 focus:ring-portfolio-gold/40 transition-all duration-300"
                         required
                       />
                     </div>
@@ -207,7 +207,7 @@ const Contact = () => {
                         rows="4"
                         value={contactForm.message}
                         onChange={(e) => setContactForm(prev => ({ ...prev, message: e.target.value }))}
-                        className="w-full pl-12 pr-4 py-4 bg-portfolio-gold/10 border border-portfolio-gold/30 rounded-xl text-portfolio-text dark:placeholder-slate-400 placeholder-slate-500 focus:border-portfolio-gold focus:ring-2 focus:ring-portfolio-gold/40 transition-all duration-300 resize-none"
+                        className="w-full min-w-0 pl-12 pr-4 py-4 bg-portfolio-gold/10 border border-portfolio-gold/30 rounded-xl text-portfolio-text dark:placeholder-slate-400 placeholder-slate-500 focus:border-portfolio-gold focus:ring-2 focus:ring-portfolio-gold/40 transition-all duration-300 resize-none"
                         required
                       ></textarea>
                     </div>

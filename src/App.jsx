@@ -15,7 +15,7 @@ function App() {
 
   return (
     <NavbarProvider>
-        <div className="relative min-h-screen bg-portfolio-bg bg-portfolio-surface transition-colors duration-500 overflow-hidden">
+        <div className="relative min-h-screen bg-portfolio-bg bg-portfolio-surface transition-colors duration-500 overflow-x-hidden">
           {/* Global Background Animation */}
           <div className="fixed inset-0 z-0">
             <Squares

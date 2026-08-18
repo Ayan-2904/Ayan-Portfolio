@@ -134,12 +134,7 @@ const Header = () => {
                 clipPath: isMenuOpen ? 'none' : CLIP_PATH,
               }}
               className={`pt-3 ${isMenuOpen ? 'pb-0' : 'pb-5'} relative z-20 pointer-events-auto transition-all duration-300
-                ${isMenuOpen
-                  ? "bg-portfolio-bg/80 bg-portfolio-surface/80 backdrop-blur-xl border-b dark:border-white/10 border-portfolio-border/50 shadow-lg"
-                  : isScrolled
-                    ? "bg-portfolio-bg/90 bg-portfolio-surface/85 backdrop-blur-md border-b dark:border-white/10 border-portfolio-border shadow-sm"
-                    : "bg-portfolio-bg bg-portfolio-surface"
-                }`}
+                ${isScrolled || isMenuOpen ? "bg-portfolio-bg/90 bg-portfolio-surface/85 backdrop-blur-md border-b dark:border-white/10 border-portfolio-border shadow-sm" : "bg-portfolio-bg bg-portfolio-surface"}`}
             >
               {/* =========== REFACTORED NAVIGATION =========== */}
               <nav className="container mx-auto flex items-center justify-between flex-wrap pb-0 px-1">
