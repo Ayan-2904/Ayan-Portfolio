@@ -13,7 +13,7 @@ export const supabase = supabaseUrl && supabaseAnonKey
   : null;
 
 // Check connection
-export const checkConnection = async () => {
+const checkConnection = async () => {
   if (!supabase) return false;
   
   try {

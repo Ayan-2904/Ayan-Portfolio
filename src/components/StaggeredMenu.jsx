@@ -4,7 +4,7 @@ import { useTheme } from '../contexts/ThemeContext';
 
 export const StaggeredMenu = ({
     position = 'right',
-    colors = ['#0891b2', '#06b6d4'], // Cyan/Teal defaults to match site
+    colors = ['#D4AF37', '#E5C65A'], // Cyan/Teal defaults to match site
     items = [],
     socialItems = [],
     displaySocials = true,
@@ -15,7 +15,7 @@ export const StaggeredMenu = ({
     openMenuButtonColor = '#fff',
     changeMenuColorOnOpen = true,
     isFixed = false,
-    accentColor = '#06b6d4', // Cyan accent
+    accentColor = '#E5C65A', // Cyan accent
     closeOnClickAway = true,
     onMenuOpen,
     onMenuClose,
@@ -356,7 +356,7 @@ export const StaggeredMenu = ({
                     aria-hidden="true"
                 >
                     {(() => {
-                        const raw = colors && colors.length ? colors.slice(0, 4) : ['#1e1e22', '#35353c'];
+                        const raw = colors && colors.length ? colors.slice(0, 4) : ['#121212', '#272727'];
                         let arr = [...raw];
                         if (arr.length >= 3) {
                             const mid = Math.floor(arr.length / 2);
@@ -376,12 +376,12 @@ export const StaggeredMenu = ({
                     id="staggered-menu-panel"
                     ref={panelRef}
                     className={`staggered-menu-panel absolute top-0 right-0 h-full flex flex-col p-[2em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-[16px] pointer-events-auto transition-colors duration-500
-                        ${theme === 'dark' ? 'bg-[#11142F]/80 text-white' : 'bg-white/80 text-slate-800'}`}
+                        ${theme === 'dark' ? 'bg-[#080808]/80 text-portfolio-text' : 'bg-portfolio-surface/80 text-portfolio-text'}`}
                     style={{ WebkitBackdropFilter: 'blur(16px)' }}
                     aria-hidden={!open}
                 >
                     <div className="flex justify-end mb-4">
-                        <button onClick={closeMenu} className={`text-3xl transition-colors ${theme === 'dark' ? 'text-white hover:text-cyan-400' : 'text-slate-800 hover:text-cyan-500'}`}>
+                        <button onClick={closeMenu} className={`text-3xl transition-colors ${theme === 'dark' ? 'text-portfolio-text hover:text-portfolio-gold' : 'text-portfolio-text hover:text-portfolio-gold'}`}>
                             &times;
                         </button>
                     </div>
@@ -397,7 +397,7 @@ export const StaggeredMenu = ({
                                     <li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.label + idx}>
                                         <a
                                             className={`sm-panel-item relative font-semibold text-[3rem] cursor-pointer leading-none tracking-[-2px] uppercase transition-[all] duration-150 ease-linear inline-block no-underline pr-[1.4em]
-                                                ${theme === 'dark' ? 'text-white hover:text-[#00ffdc]' : 'text-black hover:text-cyan-600'}`}
+                                                ${theme === 'dark' ? 'text-portfolio-text hover:text-portfolio-gold-light' : 'text-black hover:text-portfolio-gold'}`}
                                             href={it.link}
                                             onClick={(e) => {
                                                 e.preventDefault();
@@ -428,7 +428,7 @@ export const StaggeredMenu = ({
 
                         {displaySocials && socialItems && socialItems.length > 0 && (
                             <div className="sm-socials mt-auto pt-8 flex flex-col gap-3" aria-label="Social links">
-                                <h3 className="sm-socials-title m-0 text-base font-medium [color:var(--sm-accent,#ff0000)]">Socials</h3>
+                                <h3 className="sm-socials-title m-0 text-base font-medium [color:var(--sm-accent,#D4AF37)]">Socials</h3>
                                 <ul
                                     className="sm-socials-list list-none m-0 p-0 flex flex-row items-center gap-4 flex-wrap"
                                     role="list"
@@ -440,7 +440,7 @@ export const StaggeredMenu = ({
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className={`sm-socials-link text-[1.2rem] font-medium no-underline relative inline-block py-[2px] transition-[color,opacity] duration-300 ease-linear
-                                                    ${theme === 'dark' ? 'text-slate-300 hover:text-[#00ffdc]' : 'text-[#111] hover:text-cyan-600'}`}
+                                                    ${theme === 'dark' ? 'text-portfolio-secondary hover:text-portfolio-gold-light' : 'text-portfolio-text hover:text-portfolio-gold'}`}
                                             >
                                                 {s.label}
                                             </a>
@@ -463,14 +463,14 @@ export const StaggeredMenu = ({
 .sm-scope .sm-prelayer { position: absolute; top: 0; right: 0; height: 100%; width: 100%; transform: translateX(0); }
 .sm-scope .sm-panel-inner { flex: 1; display: flex; flex-direction: column; gap: 1.25rem; }
 .sm-scope .sm-socials { margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
-.sm-scope .sm-socials-title { margin: 0; font-size: 1rem; font-weight: 500; color: var(--sm-accent, #ff0000); }
+.sm-scope .sm-socials-title { margin: 0; font-size: 1rem; font-weight: 500; color: var(--sm-accent, #D4AF37); }
 .sm-scope .sm-socials-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: row; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .sm-scope .sm-socials-list .sm-socials-link { opacity: 1; transition: opacity 0.3s ease; }
 .sm-scope .sm-socials-list:hover .sm-socials-link:not(:hover) { opacity: 0.35; }
 .sm-scope .sm-socials-list:focus-within .sm-socials-link:not(:focus-visible) { opacity: 0.35; }
 .sm-scope .sm-socials-list .sm-socials-link:hover,
 .sm-scope .sm-socials-list .sm-socials-link:focus-visible { opacity: 1; }
-.sm-scope .sm-socials-link:focus-visible { outline: 2px solid var(--sm-accent, #ff0000); outline-offset: 3px; }
+.sm-scope .sm-socials-link:focus-visible { outline: 2px solid var(--sm-accent, #D4AF37); outline-offset: 3px; }
 .sm-scope .sm-socials-link { font-size: 1.2rem; font-weight: 500; text-decoration: none; position: relative; padding: 2px 0; display: inline-block; transition: color 0.3s ease, opacity 0.3s ease; }
 .sm-scope .sm-panel-title { margin: 0; font-size: 1rem; font-weight: 600; color: #fff; text-transform: uppercase; }
 .sm-scope .sm-panel-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -487,7 +487,7 @@ export const StaggeredMenu = ({
     right: 0; 
     font-size: 18px; 
     font-weight: 400; 
-    color: var(--sm-accent, #ff0000); 
+    color: var(--sm-accent, #D4AF37); 
     letter-spacing: 0; 
     pointer-events: none; 
     user-select: none; 

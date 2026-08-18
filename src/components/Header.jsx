@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { FaShieldAlt, FaSun, FaMoon } from 'react-icons/fa';
-import bangzenLogo from '../assets/images/BGZENBGIJObulat.png';
+import { FaShieldAlt, FaSun, FaMoon, FaCode } from 'react-icons/fa';
 import { useNavbar } from '../contexts/NavbarContext';
 import { useTheme } from '../contexts/ThemeContext';
-import { useAdmin } from '../contexts/AdminContext';
 import { useLocation, useNavigate } from 'react-router-dom';
-import AdminLogin from './AdminLogin';
-import AdminDashboard from './AdminDashboard';
 import { StaggeredMenu } from './StaggeredMenu';
 
 const CLIP_PATH =
@@ -16,11 +12,8 @@ const CLIP_PATH =
 const Header = () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false); // REPLACED BY CONTEXT
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showAdminLogin, setShowAdminLogin] = useState(false);
-  const [showAdminDashboard, setShowAdminDashboard] = useState(false);
 
   const { isNavbarVisible, hideNavbar, showNavbar, isMenuOpen, setIsMenuOpen } = useNavbar();
-  const { isAuthenticated, logout } = useAdmin();
   const { theme, toggleTheme } = useTheme();
 
   const location = useLocation();
@@ -48,37 +41,6 @@ const Header = () => {
     }
   }, [location]);
 
-  const handleAdminAccess = () => {
-    if (isAuthenticated) {
-      setShowAdminDashboard(true);
-      hideNavbar();
-    } else {
-      setShowAdminLogin(true);
-      hideNavbar();
-    }
-  };
-
-  const handleLoginSuccess = () => {
-    setShowAdminLogin(false);
-    setShowAdminDashboard(true);
-    hideNavbar();
-  };
-
-  const handleAdminLogout = () => {
-    logout();
-    setShowAdminDashboard(false);
-    showNavbar();
-  };
-
-  const handleCloseAdminDashboard = () => {
-    setShowAdminDashboard(false);
-    showNavbar();
-  };
-
-  const handleCloseAdminLogin = () => {
-    setShowAdminLogin(false);
-    showNavbar();
-  };
 
   // Improved Navigation Handler
   const handleNavClick = (e, href) => {
@@ -112,10 +74,10 @@ const Header = () => {
         <a
           href={href}
           onClick={(e) => handleNavClick(e, href)}
-          className={`relative block dark:text-white text-slate-700 font-[Rubik] font-bold text-base tracking-wider py-2 transition-transform duration-300 hover:scale-110 group ${isActive ? 'text-cyan-500 dark:text-cyan-400' : ''}`}
+          className={`relative block text-portfolio-text text-portfolio-secondary font-[Rubik] font-bold text-base tracking-wider py-2 transition-transform duration-300 hover:scale-110 group ${isActive ? 'text-portfolio-gold-light' : ''}`}
         >
           {children}
-          <span className={`absolute bottom-1 left-0 block h-[2px] w-0 dark:bg-[#00ffdc] bg-cyan-600 transition-all duration-500 group-hover:w-full ${isActive ? 'w-full' : ''}`}></span>
+          <span className={`absolute bottom-1 left-0 block h-[2px] w-0 bg-portfolio-gold-dark transition-all duration-500 group-hover:w-full ${isActive ? 'w-full' : ''}`}></span>
         </a>
       </li>
     );
@@ -141,11 +103,11 @@ const Header = () => {
                   height: '85px',
                   WebkitClipPath: isMenuOpen ? 'none' : CLIP_PATH,
                   clipPath: isMenuOpen ? 'none' : CLIP_PATH,
-                  background: 'linear-gradient(90deg, #00fff0, #00ffdc, #4079ff, #40ffaa, #00fff0)',
+                  background: 'linear-gradient(90deg, transparent, #A8841F, #D4AF37, #A8841F, transparent)',
                   backgroundSize: '300% 100%',
                   animation: 'gradientShadowMove 6s linear infinite',
                   opacity: isScrolled ? 0 : 1,
-                  filter: 'drop-shadow(0 16px 24px rgba(64,255,170,0.35))',
+                  filter: 'drop-shadow(0 16px 24px rgba(212,175,55,0.15))',
                 }}
               ></div>
             ) : (
@@ -156,11 +118,11 @@ const Header = () => {
                   height: '85px',
                   WebkitClipPath: isMenuOpen ? 'none' : CLIP_PATH,
                   clipPath: isMenuOpen ? 'none' : CLIP_PATH,
-                  background: 'linear-gradient(90deg, #0891b2, #06b6d4, #0891b2, #06b6d4, #0891b2)',
+                  background: 'linear-gradient(90deg, transparent, #A8841F, #D4AF37, #A8841F, transparent)',
                   backgroundSize: '300% 100%',
                   animation: 'gradientShadowMove 6s linear infinite',
                   opacity: isScrolled ? 0 : 1,
-                  filter: 'drop-shadow(0 8px 16px rgba(8,145,178,0.25))',
+                  filter: 'drop-shadow(0 8px 16px rgba(212,175,55,0.15))',
                 }}
               ></div>
             )}
@@ -173,10 +135,10 @@ const Header = () => {
               }}
               className={`pt-3 ${isMenuOpen ? 'pb-0' : 'pb-5'} relative z-20 pointer-events-auto transition-all duration-300
                 ${isMenuOpen
-                  ? "dark:bg-[#11142F]/80 bg-white/80 backdrop-blur-xl border-b dark:border-white/10 border-slate-200/50 shadow-lg"
+                  ? "bg-portfolio-bg/80 bg-portfolio-surface/80 backdrop-blur-xl border-b dark:border-white/10 border-portfolio-border/50 shadow-lg"
                   : isScrolled
-                    ? "dark:bg-[#11142F]/90 bg-white/85 backdrop-blur-md border-b dark:border-white/10 border-slate-200 shadow-sm"
-                    : "dark:bg-[#11142F] bg-white"
+                    ? "bg-portfolio-bg/90 bg-portfolio-surface/85 backdrop-blur-md border-b dark:border-white/10 border-portfolio-border shadow-sm"
+                    : "bg-portfolio-bg bg-portfolio-surface"
                 }`}
             >
               {/* =========== REFACTORED NAVIGATION =========== */}
@@ -186,16 +148,18 @@ const Header = () => {
                 <div className="w-full flex items-center justify-between md:hidden">
                   {/* Mobile: Brand Logo & Text (Left) */}
                   <a href="/" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-3">
-                    <img src={bangzenLogo} alt="Bangzen Logo" className="h-12 w-12 flex-shrink-0" />
+                    <div className="flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-portfolio-surface border border-portfolio-gold/30 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+                      <FaCode className="text-portfolio-gold text-xl md:text-2xl" />
+                    </div>
                     <div>
-                      <h1 className="font-moderniz text-sm dark:text-[#00ffdc] text-slate-800 whitespace-nowrap">Zain Ahmad Fahrezi</h1>
-                      <p className="font-moderniz text-[9px] dark:text-[#00ffdc] text-slate-600" style={{ textShadow: 'none' }}>
+                      <h1 className="font-moderniz text-sm text-portfolio-gold text-portfolio-text whitespace-nowrap">Ayan Mujawar</h1>
+                      <p className="font-moderniz text-[9px] text-portfolio-gold text-portfolio-secondary" style={{ textShadow: 'none' }}>
                         Let's see the awesome Experience
                       </p>
                     </div>
                   </a>
                   {/* Mobile: Hamburger Button (Right) */}
-                  <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="dark:text-[#00ffdc] text-slate-800 text-3xl pointer-events-auto">
+                  <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-portfolio-gold text-portfolio-text text-3xl pointer-events-auto">
                     &#9776;
                   </button>
                 </div>
@@ -206,7 +170,6 @@ const Header = () => {
                   <ul className="justify-self-start flex items-center list-none gap-8 lg:gap-10">
                     <NavLink href="#home">Home</NavLink>
                     <NavLink href="#projects">Project</NavLink>
-                    <NavLink href="/gallery" isGallery>Gallery</NavLink>
                   </ul>
 
                   {/* Desktop: Center Logo & Text (Center) */}
@@ -215,10 +178,12 @@ const Header = () => {
                     onClick={(e) => handleNavClick(e, '#home')}
                     className="justify-self-center flex items-center gap-3"
                   >
-                    <img src={bangzenLogo} alt="Bangzen Logo" className="h-12 w-12" />
+                    <div className="flex items-center justify-center h-12 w-12 rounded-full bg-portfolio-surface border border-portfolio-gold/30 shadow-[0_0_15px_rgba(212,175,55,0.2)] group-hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-shadow duration-300">
+                      <FaCode className="text-portfolio-gold text-2xl" />
+                    </div>
                     <div className="block">
-                      <h1 className="font-moderniz text-base dark:text-[#00ffdc] text-slate-800">Zain Ahmad Fahrezi</h1>
-                      <p className="font-moderniz text-[10px] dark:text-[#00ffdc] text-slate-600" style={{ textShadow: 'none' }}>
+                      <h1 className="font-moderniz text-base text-portfolio-gold text-portfolio-text">Ayan Mujawar</h1>
+                      <p className="font-moderniz text-[10px] text-portfolio-gold text-portfolio-secondary" style={{ textShadow: 'none' }}>
                         Let's see the awesome Experience
                       </p>
                     </div>
@@ -234,13 +199,7 @@ const Header = () => {
                       <NavLink href="#about">About</NavLink>
                       <NavLink href="#contact">Contact</NavLink>
                     </ul>
-                    <button
-                      onClick={handleAdminAccess}
-                      className="flex items-center gap-2 dark:text-slate-400 text-slate-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300 pointer-events-auto"
-                      title={isAuthenticated ? "Admin Dashboard" : "Admin Login"}
-                    >
-                      <FaShieldAlt className={`text-lg ${isAuthenticated ? 'text-green-500' : 'currentColor'}`} />
-                    </button>
+
                   </div>
                 </div>
 
@@ -257,33 +216,16 @@ const Header = () => {
         items={[
           { label: 'Home', link: '#home', onClick: (e) => handleNavClick(e, '#home') },
           { label: 'Project', link: '#projects', onClick: (e) => handleNavClick(e, '#projects') },
-          { label: 'Gallery', link: '/gallery', onClick: (e) => handleNavClick(e, '/gallery') },
           { label: 'About', link: '#about', onClick: (e) => handleNavClick(e, '#about') },
           { label: 'Contact', link: '#contact', onClick: (e) => handleNavClick(e, '#contact') },
         ]}
-        socialItems={[
-          { label: 'Admin', link: '#', onClick: (e) => { e.preventDefault(); handleAdminAccess(); } }
-        ]}
+        socialItems={[]}
         displaySocials={true}
         displayItemNumbering={true}
-        colors={['#0891b2', '#06b6d4', '#155e75']} // Cyan palette
-        accentColor="#06b6d4"
+        colors={['#A8841F', '#D4AF37', '#E5C65A']} // Gold palette
+        accentColor="#D4AF37"
       />
 
-      {/* Admin Login Modal */}
-      <AdminLogin
-        isOpen={showAdminLogin}
-        onClose={handleCloseAdminLogin}
-        onSuccess={handleLoginSuccess}
-      />
-
-      {/* UNIFIED Admin Dashboard */}
-      <AdminDashboard
-        isOpen={showAdminDashboard}
-        onClose={handleCloseAdminDashboard}
-      />
-
-      {/* Animasi gradient keyframes */}
       <style>
         {`
           @keyframes gradientShadowMove {

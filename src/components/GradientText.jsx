@@ -6,7 +6,7 @@ const TEXTS_TO_TYPE = ["Front End Developer", "3D Designer"];
 // Komponen utama
 export default function LoopingGradientText({
   className = "",
-  colors = ["#ffaa40", "#9c40ff", "#ffaa40"],
+  colors = ["#D4AF37", "#E5C65A", "#A8841F"],
   animationSpeed = 3,
   typingSpeed = 100,
   deletingSpeed = 75,
@@ -70,7 +70,7 @@ export default function LoopingGradientText({
 
         {/* Kursor mengetik */}
         <span
-          className="ml-1 inline-block h-5 w-0.5 animate-blink dark:bg-white bg-slate-800"
+          className="ml-1 inline-block h-5 w-0.5 animate-blink dark:bg-portfolio-surface bg-portfolio-bg"
           style={{ height: "1.25em", verticalAlign: "bottom" }}
         />
       </div>

@@ -7,6 +7,18 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        portfolio: {
+          bg: "#080808",
+          surface: "#121212",
+          gold: "#D4AF37",
+          "gold-light": "#E5C65A",
+          "gold-dark": "#A8841F",
+          text: "#F5F5F5",
+          secondary: "#A1A1AA",
+          border: "#272727",
+        },
+      },
       fontFamily: {
         'moderniz': ['Moderniz', 'sans-serif'],
         'bauhaus': ['Bauhaus93', 'sans-serif'],
