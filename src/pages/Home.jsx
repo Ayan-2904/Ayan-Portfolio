@@ -74,10 +74,10 @@ const Home = () => {
                         <Skills />
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 1.0, ease: "easeOut" }} className="flex flex-row gap-4 mt-8">
-                        <a href="https://github.com/ayanmujawar2904" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-portfolio-border bg-portfolio-surface/[0.8] bg-portfolio-surface text-portfolio-secondary text-portfolio-text transition-all duration-300 hover:border-portfolio-gold hover:bg-portfolio-surface hover:bg-portfolio-bg hover:shadow-md dark:hover:shadow-[0_0_24px_2px_rgba(212,175,55,0.15)]">
+                        <a href="https://github.com/Ayan-2904" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-portfolio-border bg-portfolio-surface/[0.8] bg-portfolio-surface text-portfolio-secondary text-portfolio-text transition-all duration-300 hover:border-portfolio-gold hover:bg-portfolio-surface hover:bg-portfolio-bg hover:shadow-md dark:hover:shadow-[0_0_24px_2px_rgba(212,175,55,0.15)]">
                             <FaGithub className="h-6 w-6 text-portfolio-secondary transition-all duration-300 group-hover:text-portfolio-gold-dark dark:group-hover:text-portfolio-gold" />
                         </a>
-                        <a href="https://linkedin.com/in/ayanmujawar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-portfolio-border bg-portfolio-surface/[0.8] bg-portfolio-surface text-portfolio-secondary text-portfolio-text transition-all duration-300 hover:border-portfolio-gold hover:bg-portfolio-surface hover:bg-portfolio-bg hover:shadow-md dark:hover:shadow-[0_0_24px_2px_rgba(212,175,55,0.15)]">
+                        <a href="https://www.linkedin.com/in/ayan-mujawar-558411256/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-portfolio-border bg-portfolio-surface/[0.8] bg-portfolio-surface text-portfolio-secondary text-portfolio-text transition-all duration-300 hover:border-portfolio-gold hover:bg-portfolio-surface hover:bg-portfolio-bg hover:shadow-md dark:hover:shadow-[0_0_24px_2px_rgba(212,175,55,0.15)]">
                             <FaLinkedin className="h-6 w-6 text-portfolio-secondary transition-all duration-300 group-hover:text-portfolio-gold-dark dark:group-hover:text-portfolio-gold" />
                         </a>
                     </motion.div>
@@ -141,7 +141,7 @@ const Home = () => {
                         <p className="text-2xl dark:text-portfolio-secondary font-moderniz my">Hello, I'm</p>
                         <h3 className="text-4xl font-bold dark:text-portfolio-text my-2 font-moderniz">Ayan Mujawar</h3>
                         <p className="dark:text-portfolio-text/80 text-portfolio-secondary leading-relaxed mt-4 font-cascadia text-justify">
-                            I am a Full Stack Developer Intern at New Binary Solutions with a strong interest in modern web development. I am passionate about learning new technologies and building scalable, responsive web applications.
+                            I am a Full Stack Developer Intern at New Binary Solutions and a B.Tech student in Computer Science and Engineering (Data Science) at KIT's College of Engineering. I am passionate about building scalable, responsive web applications, integrating AI, and learning new technologies.
                         </p>
                         <div className="my-6 bg-portfolio-surface/50 bg-portfolio-surface border-l-4 border-portfolio-gold-dark p-4 rounded-r-lg italic text-portfolio-text/70 text-portfolio-secondary font-cascadia dark:shadow-none shadow-md">
                             "Whoever strives shall succeed."
@@ -186,9 +186,9 @@ const Home = () => {
                 <Contact />
             </section>
 
-            <footer className="py-12 pb-16 text-center text-portfolio-secondary dark:bg-gradient-to-t from-portfolio-bg dark:to-transparent bg-gradient-to-t from-slate-100/50 to-transparent">
-                <div className="text-sm">© {new Date().getFullYear()} Ayan Mujawar. All rights reserved.</div>
-                <div className="text-xs mt-2">Built with <span className="text-portfolio-gold">♥</span> using React, Tailwind CSS, and Framer Motion.</div>
+            <footer className="py-12 pb-16 text-center text-portfolio-secondary">
+                <div className="text-sm">&copy; {new Date().getFullYear()} Ayan Mujawar. All rights reserved.</div>
+                <div className="text-xs mt-2">Built with <span className="text-portfolio-gold">&hearts;</span> using React, Tailwind CSS, and Framer Motion.</div>
             </footer>
         </motion.div>
     );

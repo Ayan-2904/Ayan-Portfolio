@@ -33,40 +33,59 @@ const Contact = () => {
 
   // Handle contact form
   const handleContactSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmittingContact(true);
+      e.preventDefault();
+      setIsSubmittingContact(true);
+  
+      try {
+        // Send email via FormSubmit
+        const emailResponse = await fetch("https://formsubmit.co/ajax/ayanmujawar2904@gmail.com", {
+            method: "POST",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                name: contactForm.name,
+                email: contactForm.email,
+                message: contactForm.message,
+                _subject: `New Portfolio Message from ${contactForm.name}`
+            })
+        });
 
-    try {
-      // Save message to Supabase
-      const { data, error } = await supabase
-        .from('contact_messages')
-        .insert([
-          {
-            name: contactForm.name,
-            email: contactForm.email,
-            message: contactForm.message,
-            status: 'unread'
+        const emailResult = await emailResponse.json();
+        if (!emailResponse.ok) {
+            console.error('Email API error:', emailResult);
+        }
+
+        // Save message to Supabase as backup
+        if (supabase) {
+          const { data, error } = await supabase
+            .from('contact_messages')
+            .insert([
+              {
+                name: contactForm.name,
+                email: contactForm.email,
+                message: contactForm.message,
+                status: 'unread'
+              }
+            ])
+            .select();
+    
+          if (error) {
+            console.error('Supabase error:', error);
           }
-        ])
-        .select();
-
-      if (error) {
-        console.error('Supabase error:', error);
-        throw error;
+        }
+  
+        // Reset form on success
+        setContactForm({ name: '', email: '', message: '' });
+        alert('Message sent successfully!');
+      } catch (error) {
+        console.error('Error submitting contact form:', error);
+        alert(`Failed to send message: ${error.message}. Please try again later.`);
+      } finally {
+        setIsSubmittingContact(false);
       }
-
-      console.log('Message saved to database:', data);
-
-      alert('Message sent successfully! Thank you for reaching out. 📧');
-      setContactForm({ name: '', email: '', message: '' });
-
-    } catch (error) {
-      console.error('Error submitting contact form:', error);
-      alert(`Failed to send message: ${error.message}. Please try again later.`);
-    } finally {
-      setIsSubmittingContact(false);
-    }
-  };
+    };
 
 
 
@@ -75,21 +94,21 @@ const Contact = () => {
     {
       name: 'GitHub',
       icon: <FaGithub />,
-      url: 'https://github.com/ayanmujawar2904',
+      url: 'https://github.com/Ayan-2904',
       color: 'from-gray-600 to-gray-800',
       hoverColor: 'hover:shadow-gray-500/25'
     },
     {
       name: 'Instagram',
       icon: <FaInstagram />,
-      url: 'https://instagram.com/ayanmujawar',
+      url: 'https://www.instagram.com/ayanm_29/',
       color: 'from-pink-500 to-purple-600',
       hoverColor: 'hover:shadow-pink-500/25'
     },
     {
       name: 'LinkedIn',
       icon: <FaLinkedin />,
-      url: 'https://linkedin.com/in/ayanmujawar',
+      url: 'https://www.linkedin.com/in/ayan-mujawar-558411256/',
       color: 'from-blue-600 to-blue-800',
       hoverColor: 'hover:shadow-blue-500/25'
     }
@@ -139,8 +158,8 @@ const Contact = () => {
           >
             {/* Contact Form Panel */}
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-portfolio-gold to-portfolio-gold-dark rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 hidden dark:block"></div>
-              <div className="relative bg-portfolio-surface/80 bg-portfolio-surface backdrop-blur-xl rounded-3xl p-8 border border-portfolio-border dark:shadow-none shadow-xl">
+              
+              <div className="relative bg-portfolio-surface/80 bg-portfolio-surface backdrop-blur-xl rounded-3xl p-8 border border-portfolio-border group-hover:border-portfolio-gold transition-colors duration-500 dark:shadow-none shadow-xl group-hover:shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="p-3 dark:bg-gradient-to-r from-portfolio-gold to-portfolio-gold-dark bg-portfolio-gold rounded-full">
                     <FaPaperPlane className="text-portfolio-text text-xl" />
@@ -222,9 +241,9 @@ const Contact = () => {
             </div>
 
             {/* Social Media Panel */}
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-portfolio-gold to-portfolio-gold-dark rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 hidden dark:block"></div>
-              <div className="relative bg-portfolio-surface/80 bg-portfolio-surface backdrop-blur-xl rounded-3xl p-8 border border-portfolio-border shadow-lg dark:shadow-none">
+              <div className="relative group">
+                
+                <div className="relative bg-portfolio-surface/80 bg-portfolio-surface backdrop-blur-xl rounded-3xl p-8 border border-portfolio-border group-hover:border-portfolio-gold transition-colors duration-500 shadow-lg dark:shadow-none group-hover:shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 <h3 className="text-2xl font-bold dark:text-portfolio-text mb-6 text-center">Connect With Me</h3>
                 <div className="grid gap-4">
                   {socialLinks.map((social, index) => (

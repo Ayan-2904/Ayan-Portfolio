@@ -83,13 +83,13 @@ const Preloader = ({ onFinished }) => {
                 animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.8 } }}
                 className="flex justify-center gap-6"
               >
-                <a href="https://github.com/ayanmujawar2904" target="_blank" rel="noopener noreferrer" className="hover:text-portfolio-gold-light hover:text-portfolio-gold transition-all duration-300 transform hover:scale-110">
+                <a href="https://github.com/Ayan-2904" target="_blank" rel="noopener noreferrer" className="hover:text-portfolio-gold-light hover:text-portfolio-gold transition-all duration-300 transform hover:scale-110">
                   <Github size={32} />
                 </a>
-                <a href="https://www.linkedin.com/in/ayanmujawar" target="_blank" rel="noopener noreferrer" className="hover:text-portfolio-gold-light hover:text-portfolio-gold transition-all duration-300 transform hover:scale-110">
+                <a href="https://www.linkedin.com/in/ayan-mujawar-558411256/" target="_blank" rel="noopener noreferrer" className="hover:text-portfolio-gold-light hover:text-portfolio-gold transition-all duration-300 transform hover:scale-110">
                   <Linkedin size={32} />
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-portfolio-gold-light hover:text-portfolio-gold transition-all duration-300 transform hover:scale-110">
+                <a href="https://www.instagram.com/ayanm_29/" target="_blank" rel="noopener noreferrer" className="hover:text-portfolio-gold-light hover:text-portfolio-gold transition-all duration-300 transform hover:scale-110">
                   <Instagram size={32} />
                 </a>
               </motion.div>

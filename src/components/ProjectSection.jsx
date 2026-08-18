@@ -5,7 +5,7 @@ import {
   FaExternalLinkAlt, FaReact, FaNodeJs, FaHtml5, FaCss3Alt,
   FaJsSquare, FaTools, FaFigma, FaGithub, FaTimes, FaDownload,
   FaFolderOpen, FaCertificate, FaCode
-} from 'react-icons/fa';
+, FaAws } from 'react-icons/fa';
 import {
   SiTailwindcss, SiNextdotjs, SiVercel, SiMongodb,
   SiExpress, SiPostgresql
@@ -21,45 +21,32 @@ import { supabase } from '../lib/supabase';
 // ===================================
 const dummyProjects = [
   {
-    title: "Portfolio v2",
-    description: "Website portofolio pribadi yang dibangun dengan React, Next.js, dan Tailwind CSS, di-deploy di Vercel.",
-    tech: ["Next.js", "React", "TailwindCSS", "Framer Motion"],
-    link: "https://github.com/username/portfolio",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    title: "AI BioScan",
+    description: "Intelligent Health Risk Assessment System integrating ML models for symptom analysis and real-time health risk prediction.",
+    tech: ["React.js", "Python", "PostgreSQL"],
+    link: "https://aibioscan.vercel.app/",
+    github: "https://github.com/Ayan-2904/AIBioscan",
+    image: "/project-images/ai_bioscan.jpg",
     category: "Web/Apps",
   },
   {
-    title: "E-Commerce API",
-    description: "RESTful API untuk platform e-commerce dengan fitur otentikasi, manajemen produk, dan transaksi.",
-    tech: ["Node.js", "Express", "MongoDB", "JWT"],
-    link: "https://github.com/username/ecommerce-api",
-    image: "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=2072&auto=format&fit=crop",
+    title: "YouTube Video Summarizer",
+    description: "AI-powered application that generates concise summaries from YouTube videos using LLMs with transcript chunking.",
+    tech: ["React.js", "Node.js", "LLMs"],
+    link: "https://youtube-transcript-summarizer-m3kq.vercel.app/",
+    github: "https://github.com/Ayan-2904/YTTranscript_main",
+    image: "/project-images/youtube_summarizer.jpg",
     category: "Web/Apps",
   },
   {
-    title: "UI Design System",
-    description: "Merancang komponen UI yang reusable dan konsisten untuk aplikasi web menggunakan Figma.",
-    tech: ["Figma", "Storybook"],
-    link: "#",
-    image: "https://images.unsplash.com/photo-1600132806378-62402124d9e0?q=80&w=2070&auto=format&fit=crop",
+    title: "Text-to-Image Generator",
+    description: "Generative AI web application using Stable Diffusion for text-to-image generation, optimized for latency.",
+    tech: ["React.js", "Stable Diffusion", "Docker"],
+    link: "https://text-to-image-w2ji.vercel.app/login",
+    github: "https://github.com/Ayan-2904/text-to-image",
+    image: "/project-images/text_to_image.jpg",
     category: "Web/Apps",
-  },
-  {
-    title: "3D Product Visualization",
-    description: "Desain 3D interaktif untuk showcase produk menggunakan Spline dan Blender.",
-    tech: ["Spline", "Blender"],
-    link: "#",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop",
-    category: "3D Design",
-  },
-  {
-    title: "Animated 3D Landing",
-    description: "Landing page dengan elemen 3D animasi untuk branding modern.",
-    tech: ["Spline", "Three.js"],
-    link: "#",
-    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=2070&auto=format&fit=crop",
-    category: "3D Design",
-  },
+  }
 ];
 
 // ===================================
@@ -67,110 +54,126 @@ const dummyProjects = [
 // ===================================
 const userCertificates = [
   {
-    title: "Belajar Membuat Aplikasi Web dengan React",
-    issuer: "Dicoding Indonesia",
-    date: "Des 2024",
-    link: "/certificates/Belajar Membuat Aplikasi Web dengan React.pdf",
-    image: "/certificate-images/Belajar Membuat Aplikasi Web dengan React.jpg",
+    title: "AICTE Google Android Developer",
+    issuer: "AICTE / Google",
+    date: "2024",
+    link: "/certificates/AICTE Google Android Developer.pdf",
+    image: "/certificate-images/AICTE Google Android Developer.jpg",
   },
   {
-    title: "Belajar Dasar Pemrograman JavaScript",
-    issuer: "Dicoding Indonesia",
-    date: "Des 2024",
-    link: "/certificates/Belajar Dasar Pemrograman JavaScript.pdf",
-    image: "/certificate-images/Belajar Dasar Pemrograman JavaScript.jpg",
+    title: "Google Cloud Career Launchpad Generative AI Leader",
+    issuer: "Google",
+    date: "2024",
+    link: "/certificates/Google Cloud Career Launchpad.pdf",
+    image: "/certificate-images/Google Cloud Career Launchpad Generative Ai Leader track.jpg",
   },
   {
-    title: "Junior Web Developer (BNSP)",
-    issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
-    date: "Sep 2024",
-    link: "/certificates/SERTIFIKAT BNSP JUNIOR WEB DEVELOPER ZAIN AHMAD FAHREZI.jpeg",
-    image: "/certificate-images/SERTIFIKAT BNSP JUNIOR WEB DEVELOPER ZAIN AHMAD FAHREZI.jpg",
+    title: "Cloud Architecting",
+    issuer: "AWS Academy",
+    date: "2024",
+    link: "/certificates/AWS Academy Cloud Architecting.pdf",
+    image: "/certificate-images/AWS Academy Cloud Architecting.jpg",
   },
   {
-    title: "Belajar Membuat Front-End Web untuk Pemula",
-    issuer: "Dicoding Indonesia",
-    date: "Des 2024",
-    link: "/certificates/Belajar Membuat Front-End Web untuk Pemula.pdf",
-    image: "/certificate-images/Belajar Membuat Front-End Web untuk Pemula.jpg",
+    title: "Cloud Foundations",
+    issuer: "AWS Academy",
+    date: "2024",
+    link: "/certificates/AWS Academy Cloud Foundations .pdf",
+    image: "/certificate-images/AWS Academy Cloud Foundations.jpg",
   },
   {
-    title: "Operator Komputer Madya (BNSP)",
-    issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
-    date: "Des 2024",
-    link: "/certificates/Operator Komputer Madya BNSP.jpeg",
-    image: "/certificate-images/Operator Komputer Madya BNSP.jpg",
+    title: "Mathematics-Basics to Advanced for Data Science and Gen AI",
+    issuer: "Udemy",
+    date: "2024",
+    link: "/certificates/Udemy Mathematics-Basics to Advanced for Data Science and Gen AI.pdf",
+    image: "/certificate-images/Udemy Mathematics-Basics to Advanced for Data Science and Gen AI.jpg",
   },
   {
-    title: "Belajar Dasar Data Science",
-    issuer: "Dicoding Indonesia",
-    date: "Okt 2024",
-    link: "/certificates/Belajar Dasar Data Science.pdf",
-    image: "/certificate-images/Belajar Dasar Data Science.jpg",
+    title: "Data Visualisation",
+    issuer: "Forage",
+    date: "2024",
+    link: "/certificates/Forage Data Visualisation.pdf",
+    image: "/certificate-images/Forage Data Visualisation.jpg",
+  },
+
+  {
+    title: "Basic Python",
+    issuer: "Infosys",
+    date: "2024",
+    link: "/certificates/Infosys Basic Python.pdf",
+    image: "/certificate-images/Infosys Basic Python.jpg",
   },
   {
-    title: "Belajar Dasar Structured Query Language (SQL)",
-    issuer: "Dicoding Indonesia",
-    date: "Okt 2024",
-    link: "/certificates/Belajar Dasar Structured Query Language (SQL).pdf",
-    image: "/certificate-images/Belajar Dasar Structured Query Language (SQL).jpg",
+    title: "Software Engineering",
+    issuer: "Walmart",
+    date: "2024",
+    link: "/certificates/Walmart Software Engineering.pdf",
+    image: "/certificate-images/Walmart Software Engineering.jpg",
   },
   {
-    title: "Belajar Dasar AI",
-    issuer: "Dicoding Indonesia",
-    date: "Sep 2024",
-    link: "/certificates/Belajar Dasar AI.pdf",
-    image: "/certificate-images/Belajar Dasar AI.jpg",
+    title: "Google Analytics",
+    issuer: "Udemy",
+    date: "2024",
+    link: "/certificates/Udemy Google Analytics.pdf",
+    image: "/certificate-images/Udemy Google Analytics.jpg",
   },
   {
-    title: "Belajar Dasar Manajemen Proyek",
-    issuer: "Dicoding Indonesia",
-    date: "Sep 2024",
-    link: "/certificates/Belajar Dasar Manajemen Proyek.pdf",
-    image: "/certificate-images/Belajar Dasar Manajemen Proyek.jpg",
+    title: "Introduction to Natural Language Processing",
+    issuer: "Analytics Vidhya",
+    date: "2024",
+    link: "/certificates/Analytics Vidhya Introduction to Natural Language Processing.pdf",
+    image: "/certificate-images/Analytics Vidhya Introduction to Natural Language Processing.jpg",
   },
   {
-    title: "Operator Komputer Madya (VSGA)",
-    issuer: "Digital Talent Scholarship",
-    date: "Agu 2024",
-    link: "/certificates/Operator Komputer Madya VSGA.pdf",
-    image: "/certificate-images/Operator Komputer Madya VSGA.jpg",
+    title: "Introduction to Machine Learning",
+    issuer: "Data Flair",
+    date: "2024",
+    link: "/certificates/Data Flair  Introduction to Machine Learning.pdf",
+    image: "/certificate-images/Data Flair  Introduction to Machine Learning.jpg",
   },
   {
-    title: "Junior Web Developer (VSGA)",
-    issuer: "Kominfo",
-    date: "Jul 2024",
-    link: "/certificates/Junior Web Developer VSGA.pdf",
-    image: "/certificate-images/Junior Web Developer VSGA.jpg",
+    title: "Full Stack",
+    issuer: "Simplilearn",
+    date: "2024",
+    link: "/certificates/Simplilearn Full Stack.pdf",
+    image: "/certificate-images/Simplilearn Full Stack.jpg",
   },
   {
-    title: "Java Fundamentals",
-    issuer: "Oracle",
-    date: "Jun 2024",
-    link: "/certificates/JAVA FUNDAMENTALS.pdf",
-    image: "/certificate-images/JAVA FUNDAMENTALS.jpg",
+    title: "Master in Generative AI",
+    issuer: "Udemy",
+    date: "2024",
+    link: "/certificates/Udemy Master in Generative AI.pdf",
+    image: "/certificate-images/Udemy Master in Generative AI.jpg",
   },
   {
-    title: "Belajar Dasar Pemrograman Web",
-    issuer: "Dicoding Indonesia",
-    date: "Nov 2023",
-    link: "/certificates/Belajar Dasar Pemrograman Web.pdf",
-    image: "/certificate-images/Belajar Dasar Pemrograman Web.jpg",
+    title: "Mastering MYSQL",
+    issuer: "Udemy",
+    date: "2024",
+    link: "/certificates/Udemy Mastering MYSQL.pdf",
+    image: "/certificate-images/Udemy Mastering MYSQL.jpg",
   },
+  {
+    title: "Python Django Full Stack Development",
+    issuer: "Udemy",
+    date: "2025",
+    link: "/certificates/Udemy python Django Full Stack Development.pdf",
+    image: "/certificate-images/Udemy python Django Full Stack Development.jpg",
+  },
+
 ];
 
 const techStack = {
   frontend: [
-    { name: "React", icon: <FaReact className="text-[#D4AF37]" /> },
-    { name: "Next.js", icon: <SiNextdotjs className="dark:text-portfolio-text" /> },
-    { name: "JavaScript", icon: <FaJsSquare className="text-[#D4AF37]" /> },
-    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#D4AF37]" /> },
+    { name: "React.js", icon: <FaReact className="text-[#D4AF37]" /> },
     { name: "HTML5", icon: <FaHtml5 className="text-[#D4AF37]" /> },
     { name: "CSS3", icon: <FaCss3Alt className="text-[#D4AF37]" /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#D4AF37]" /> },
   ],
   backend: [
     { name: "Node.js", icon: <FaNodeJs className="text-[#D4AF37]" /> },
-    { name: "Express", icon: <SiExpress className="dark:text-portfolio-text" /> },
+    { name: "Express.js", icon: <SiExpress className="dark:text-portfolio-text" /> },
+    { name: "Python", icon: <FaJsSquare className="text-[#D4AF37]" /> },
+    { name: "REST APIs", icon: <FaCode className="text-portfolio-secondary" /> },
   ],
   database: [
     { name: "MongoDB", icon: <SiMongodb className="text-[#D4AF37]" /> },
@@ -178,9 +181,8 @@ const techStack = {
   ],
   tools: [
     { name: "Git & GitHub", icon: <FaGithub className="dark:text-portfolio-text" /> },
-    { name: "Vercel", icon: <SiVercel className="dark:text-portfolio-text" /> },
-    { name: "Figma", icon: <FaFigma className="text-[#D4AF37]" /> },
-    { name: "Tools Lain", icon: <FaTools className="text-portfolio-secondary" /> },
+    { name: "AWS", icon: <FaAws className="text-[#FF9900]" /> },
+    { name: "Docker", icon: <FaTools className="text-[#D4AF37]" /> },
   ],
 };
 
@@ -244,9 +246,9 @@ const CertificateCard = ({ cert, onClick }) => {
           <img src={cert.image} alt={cert.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30 group-hover:from-black/95 transition-all duration-500"></div>
           <div className="absolute inset-0 bg-gradient-to-br from-portfolio-gold/20 to-transparent opacity-0 group-hover:opacity-100 mix-blend-overlay transition-opacity duration-500"></div>
-          
+
           {/* Holographic Foil Overlay */}
-          <motion.div 
+          <motion.div
             className="absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100 mix-blend-color-dodge transition-opacity duration-500"
             style={{
               backgroundImage: "linear-gradient(115deg, transparent 20%, rgba(212,175,55,0.4) 45%, rgba(255,255,255,0.6) 50%, rgba(212,175,55,0.4) 55%, transparent 80%)",
@@ -354,7 +356,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-8 pt-8 border-t border-white/10">
+            <div className="flex flex-col sm:flex-row gap-4 mt-8 pt-8">
               {project.link !== '#' && (
                 <a
                   href={project.link}
@@ -370,7 +372,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
               {/* Assuming GitHub link might be stored in a different field or same link if generic */}
               {/* For now using project.link as fallback, ideally should have github specific field passed */}
               <a
-                href={project.link} // Adjust if you have a specific github_url field
+                href={project.github || project.link} // Adjust if you have a specific github_url field
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-portfolio-bg bg-portfolio-surface dark:hover:bg-portfolio-surface hover:bg-slate-600 text-portfolio-text font-bold rounded-xl dark:border-portfolio-border border-slate-600 transition-all duration-300 hover:-translate-y-1"
@@ -443,13 +445,13 @@ const ProjectCard = ({ project, onClick }) => {
         }}
         className="group relative h-64 sm:h-72 rounded-3xl overflow-hidden transition-shadow duration-300 shadow-xl hover:shadow-2xl hover:shadow-portfolio-gold/40 cursor-pointer border border-portfolio-border/50 hover:border-portfolio-gold/50"
       >
-        <div 
+        <div
           className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"
           style={{ transform: "translateZ(10px)" }}
         ></div>
-        
+
         {/* Holographic Foil Overlay */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100 mix-blend-color-dodge transition-opacity duration-500"
           style={{
             backgroundImage: "linear-gradient(115deg, transparent 20%, rgba(212,175,55,0.4) 45%, rgba(255,255,255,0.6) 50%, rgba(212,175,55,0.4) 55%, transparent 80%)",
@@ -459,13 +461,13 @@ const ProjectCard = ({ project, onClick }) => {
           }}
         ></motion.div>
 
-        <div 
+        <div
           className="absolute inset-0 bg-gradient-to-br from-portfolio-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"
           style={{ transform: "translateZ(15px)" }}
         ></div>
 
         <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-100 transition-opacity duration-300">
-          <div 
+          <div
             className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
             style={{ transform: "translateZ(40px)" }}
           >
@@ -478,7 +480,7 @@ const ProjectCard = ({ project, onClick }) => {
             <p className="text-gray-300 group-hover:text-gray-100 mt-2 text-sm line-clamp-2 leading-relaxed opacity-90 group-hover:opacity-100 transition-colors drop-shadow-sm">{project.description}</p>
           </div>
 
-          <div 
+          <div
             className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100 mt-4"
             style={{ transform: "translateZ(50px)" }}
           >
@@ -766,40 +768,40 @@ function ProjectSection() {
               <h3 className="text-3xl font-bold dark:text-portfolio-text">Projects</h3>
             </div>
             <div>
-                  {/* Only show category buttons for dummy data */}
-                  {projectsFromDB.length === 0 && (
-                    <div className="flex justify-center gap-4 mb-8">
-                      <button className={`px-5 py-2 rounded-full font-semibold transition-all duration-200 border ${projectCategory === 'Web/Apps' ? 'bg-portfolio-gold/80 text-portfolio-text border-portfolio-gold shadow-portfolio-gold/10 shadow-lg' : 'bg-portfolio-bg/60 text-portfolio-gold border-portfolio-border hover:bg-portfolio-gold/40 hover:text-portfolio-text'}`} onClick={() => setProjectCategory('Web/Apps')}>Web/Apps</button>
-                      <button className={`px-5 py-2 rounded-full font-semibold transition-all duration-200 border ${projectCategory === '3D Design' ? 'bg-portfolio-gold/80 text-portfolio-text border-portfolio-gold shadow-portfolio-gold/10 shadow-lg' : 'bg-portfolio-bg/60 text-portfolio-gold border-portfolio-border hover:bg-portfolio-gold/40 hover:text-portfolio-text'}`} onClick={() => setProjectCategory('3D Design')}>3D Design</button>
-                    </div>
-                  )}
+              {/* Only show category buttons for dummy data */}
+              {projectsFromDB.length === 0 && (
+                <div className="flex justify-center gap-4 mb-8">
+                  <button className={`px-5 py-2 rounded-full font-semibold transition-all duration-200 border ${projectCategory === 'Web/Apps' ? 'bg-portfolio-gold/80 text-portfolio-text border-portfolio-gold shadow-portfolio-gold/10 shadow-lg' : 'bg-portfolio-bg/60 text-portfolio-gold border-portfolio-border hover:bg-portfolio-gold/40 hover:text-portfolio-text'}`} onClick={() => setProjectCategory('Web/Apps')}>Web/Apps</button>
+                  <button className={`px-5 py-2 rounded-full font-semibold transition-all duration-200 border ${projectCategory === '3D Design' ? 'bg-portfolio-gold/80 text-portfolio-text border-portfolio-gold shadow-portfolio-gold/10 shadow-lg' : 'bg-portfolio-bg/60 text-portfolio-gold border-portfolio-border hover:bg-portfolio-gold/40 hover:text-portfolio-text'}`} onClick={() => setProjectCategory('3D Design')}>3D Design</button>
+                </div>
+              )}
 
-                  {loadingProjects ? (
-                    <div className="flex justify-center py-12">
-                      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-portfolio-gold"></div>
-                    </div>
+              {loadingProjects ? (
+                <div className="flex justify-center py-12">
+                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-portfolio-gold"></div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredProjects.length > 0 ? (
+                    filteredProjects.map((p, i) => (
+                      <ProjectCard
+                        key={p.id || i}
+                        project={p}
+                        onClick={setPreviewProject} // ✨ PASS HANDLER
+                      />
+                    ))
                   ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {filteredProjects.length > 0 ? (
-                        filteredProjects.map((p, i) => (
-                          <ProjectCard
-                            key={p.id || i}
-                            project={p}
-                            onClick={setPreviewProject} // ✨ PASS HANDLER
-                          />
-                        ))
-                      ) : (
-                        <div className="col-span-full text-center text-portfolio-secondary py-12">
-                          No projects available yet.
-                          {projectsFromDB.length === 0 && (
-                            <div className="mt-4 text-sm text-portfolio-gold">
-                              Add some projects to see them here!
-                            </div>
-                          )}
+                    <div className="col-span-full text-center text-portfolio-secondary py-12">
+                      No projects available yet.
+                      {projectsFromDB.length === 0 && (
+                        <div className="mt-4 text-sm text-portfolio-gold">
+                          Add some projects to see them here!
                         </div>
                       )}
                     </div>
                   )}
+                </div>
+              )}
             </div>
           </motion.div>
 
@@ -816,54 +818,54 @@ function ProjectSection() {
               <h3 className="text-3xl font-bold dark:text-portfolio-text">Certificates</h3>
             </div>
             <div className="space-y-8">
-                  {loadingCerts ? (
-                    <div className="flex justify-center py-12">
-                      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-portfolio-gold-dark"></div>
-                    </div>
-                  ) : (
-                    <>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        <AnimatePresence>
-                          {activeCertificates.slice(0, visibleCertificatesCount).map((cert, i) => {
-                            // Transform DB data to match CertificateCard props
-                            const certData = cert.id ? {
-                              // From database (has UUID id)
-                              title: cert.title,
-                              issuer: cert.issuer,
-                              date: cert.issue_date ? new Date(cert.issue_date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '',
-                              link: cert.credential_url || '#',
-                              image: cert.image_url || ''
-                            } : cert; // From static data
+              {loadingCerts ? (
+                <div className="flex justify-center py-12">
+                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-portfolio-gold-dark"></div>
+                </div>
+              ) : (
+                <>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <AnimatePresence>
+                      {activeCertificates.slice(0, visibleCertificatesCount).map((cert, i) => {
+                        // Transform DB data to match CertificateCard props
+                        const certData = cert.id ? {
+                          // From database (has UUID id)
+                          title: cert.title,
+                          issuer: cert.issuer,
+                          date: cert.issue_date ? new Date(cert.issue_date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '',
+                          link: cert.credential_url || '#',
+                          image: cert.image_url || ''
+                        } : cert; // From static data
 
-                            return <CertificateCard key={cert.id || i} cert={certData} onClick={setPreviewCertificate} />;
-                          })}
-                        </AnimatePresence>
-                      </div>
-                      {activeCertificates.length > INITIAL_CERTIFICATES_TO_SHOW && (
-                        <div className="flex justify-center mt-12">
-                          {visibleCertificatesCount < activeCertificates.length ? (
-                            <motion.button
-                              onClick={handleShowMore}
-                              className="group dark:bg-gradient-to-r from-portfolio-gold to-portfolio-gold-dark hover:from-portfolio-gold hover:to-portfolio-gold-dark bg-portfolio-gold hover:bg-portfolio-gold px-8 py-3 rounded-full text-portfolio-text font-semibold transition-all duration-300 shadow-lg hover:shadow-portfolio-gold/25"
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                            >
-                              Show More ({activeCertificates.length - visibleCertificatesCount} more)
-                            </motion.button>
-                          ) : (
-                            <motion.button
-                              onClick={handleShowLess}
-                              className="group bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 px-8 py-3 rounded-full text-portfolio-text font-semibold transition-all duration-300 shadow-lg"
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                            >
-                              Show Less
-                            </motion.button>
-                          )}
-                        </div>
+                        return <CertificateCard key={cert.id || i} cert={certData} onClick={setPreviewCertificate} />;
+                      })}
+                    </AnimatePresence>
+                  </div>
+                  {activeCertificates.length > INITIAL_CERTIFICATES_TO_SHOW && (
+                    <div className="flex justify-center mt-12">
+                      {visibleCertificatesCount < activeCertificates.length ? (
+                        <motion.button
+                          onClick={handleShowMore}
+                          className="group dark:bg-gradient-to-r from-portfolio-gold to-portfolio-gold-dark hover:from-portfolio-gold hover:to-portfolio-gold-dark bg-portfolio-gold hover:bg-portfolio-gold px-8 py-3 rounded-full text-portfolio-text font-semibold transition-all duration-300 shadow-lg hover:shadow-portfolio-gold/25"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Show More ({activeCertificates.length - visibleCertificatesCount} more)
+                        </motion.button>
+                      ) : (
+                        <motion.button
+                          onClick={handleShowLess}
+                          className="group bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 px-8 py-3 rounded-full text-portfolio-text font-semibold transition-all duration-300 shadow-lg"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Show Less
+                        </motion.button>
                       )}
-                    </>
+                    </div>
                   )}
+                </>
+              )}
             </div>
           </motion.div>
 
@@ -880,34 +882,34 @@ function ProjectSection() {
               <h3 className="text-3xl font-bold dark:text-portfolio-text">Tech Stack</h3>
             </div>
             <div className="max-w-4xl mx-auto space-y-8">
-                  {Object.entries(techStack).map(([category, techs], index) => (
-                    <motion.div 
-                      key={category}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.2 }}
-                      transition={{ delay: index * 0.1, duration: 0.5 }}
-                    >
-                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-portfolio-gold-light to-portfolio-gold capitalize mb-6 border-b border-portfolio-border/50 pb-2 drop-shadow-sm">{category}</h3>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                        {techs.map((tech, i) => (
-                          <motion.div 
-                            key={i} 
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true, amount: 0.1 }}
-                            transition={{ delay: (index * 0.1) + (i * 0.05), type: "spring", stiffness: 200 }}
-                            whileHover={{ y: -12, scale: 1.05 }}
-                            className="group/tech relative overflow-hidden flex flex-col items-center justify-center gap-3 p-4 rounded-xl bg-portfolio-surface/60 backdrop-blur-md border border-portfolio-border/50 transition-all duration-300 hover:bg-portfolio-surface/80 hover:border-portfolio-gold/40 shadow-lg hover:shadow-[0_10px_30px_-10px_rgba(212,175,55,0.4)] cursor-pointer"
-                          >
-                            <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_20%,rgba(212,175,55,0.4)_45%,rgba(255,255,255,0.6)_50%,rgba(212,175,55,0.4)_55%,transparent_80%)] bg-[length:200%_200%] opacity-0 group-hover/tech:opacity-100 group-hover/tech:animate-shimmer-sweep pointer-events-none mix-blend-color-dodge transition-opacity duration-300"></div>
-                            <div className="relative z-10 text-4xl text-portfolio-secondary group-hover/tech:text-portfolio-gold transition-colors duration-300 drop-shadow-md">{tech.icon}</div>
-                            <p className="relative z-10 text-sm text-gray-300 group-hover/tech:text-portfolio-gold-light transition-colors duration-300 font-medium">{tech.name}</p>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  ))}
+              {Object.entries(techStack).map(([category, techs], index) => (
+                <motion.div
+                  key={category}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                >
+                  <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-portfolio-gold-light to-portfolio-gold capitalize mb-6 border-b border-portfolio-border/50 pb-2 drop-shadow-sm">{category}</h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    {techs.map((tech, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ delay: (index * 0.1) + (i * 0.05), type: "spring", stiffness: 200 }}
+                        whileHover={{ y: -12, scale: 1.05 }}
+                        className="group/tech relative overflow-hidden flex flex-col items-center justify-center gap-3 p-4 rounded-xl bg-portfolio-surface/60 backdrop-blur-md border border-portfolio-border/50 transition-all duration-300 hover:bg-portfolio-surface/80 hover:border-portfolio-gold/40 shadow-lg hover:shadow-[0_10px_30px_-10px_rgba(212,175,55,0.4)] cursor-pointer"
+                      >
+                        <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_20%,rgba(212,175,55,0.4)_45%,rgba(255,255,255,0.6)_50%,rgba(212,175,55,0.4)_55%,transparent_80%)] bg-[length:200%_200%] opacity-0 group-hover/tech:opacity-100 group-hover/tech:animate-shimmer-sweep pointer-events-none mix-blend-color-dodge transition-opacity duration-300"></div>
+                        <div className="relative z-10 text-4xl text-portfolio-secondary group-hover/tech:text-portfolio-gold transition-colors duration-300 drop-shadow-md">{tech.icon}</div>
+                        <p className="relative z-10 text-sm text-gray-300 group-hover/tech:text-portfolio-gold-light transition-colors duration-300 font-medium">{tech.name}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>

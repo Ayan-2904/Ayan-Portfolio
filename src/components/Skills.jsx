@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Skills = () => {
-  const skillsList = ['React.js', 'Next.js', 'Node.js', 'Express.js', 'Python', 'Tailwind', 'MongoDB', 'AWS', 'Docker'];
+  const skillsList = ['JavaScript', 'TypeScript', 'Python', 'SQL', 'Node.js', 'Nest.js', 'Express.js', 'React.js', 'Tailwind CSS', 'MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'AWS', 'Docker', 'Git'];
 
   const containerVariants = {
     hidden: { opacity: 0 },
