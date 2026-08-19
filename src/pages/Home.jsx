@@ -187,7 +187,6 @@ const Home = () => {
             </section>
 
             <section id="projects" className="md:py-18 relative">
-                <div id="certificates" className="absolute -top-20"></div>
                 <ProjectSection />
             </section>
 

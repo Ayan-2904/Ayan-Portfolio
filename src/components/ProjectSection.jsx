@@ -5,7 +5,8 @@ import {
   FaExternalLinkAlt, FaReact, FaNodeJs, FaHtml5, FaCss3Alt,
   FaJsSquare, FaTools, FaFigma, FaGithub, FaTimes, FaDownload,
   FaFolderOpen, FaCertificate, FaCode
-, FaAws } from 'react-icons/fa';
+  , FaAws
+} from 'react-icons/fa';
 import {
   SiTailwindcss, SiNextdotjs, SiVercel, SiMongodb,
   SiExpress, SiPostgresql
@@ -63,7 +64,7 @@ const userCertificates = [
   {
     title: "Google Cloud Career Launchpad Generative AI Leader",
     issuer: "Google",
-    date: "2024",
+    date: "2025",
     link: "/certificates/Google Cloud Career Launchpad.pdf",
     image: "/certificate-images/Google Cloud Career Launchpad Generative Ai Leader track.jpg",
   },
@@ -89,13 +90,26 @@ const userCertificates = [
     image: "/certificate-images/Udemy Mathematics-Basics to Advanced for Data Science and Gen AI.jpg",
   },
   {
+    title: "Agentic AI",
+    issuer: "Udemy",
+    date: "2024",
+    link: "/certificates/Udemy Agentic Ai.pdf",
+    image: "/certificate-images/Udemy Agentic Ai.jpg",
+  },
+  {
     title: "Data Visualisation",
     issuer: "Forage",
     date: "2024",
     link: "/certificates/Forage Data Visualisation.pdf",
     image: "/certificate-images/Forage Data Visualisation.jpg",
   },
-
+  {
+    title: "Data Analytics",
+    issuer: "Accenture",
+    date: "2024",
+    link: "/certificates/Accenture Data Analystics.pdf",
+    image: "/certificate-images/Accenture Data Analystics.jpg",
+  },
   {
     title: "Basic Python",
     issuer: "Infosys",
@@ -180,8 +194,8 @@ const techStack = {
     { name: "PostgreSQL", icon: <SiPostgresql className="text-[#D4AF37]" /> },
   ],
   tools: [
-      { name: "Figma", icon: <FaFigma className="text-[#F24E1E]" /> },
-      { name: "Git & GitHub", icon: <FaGithub className="dark:text-portfolio-text" /> },
+    { name: "Figma", icon: <FaFigma className="text-[#F24E1E]" /> },
+    { name: "Git & GitHub", icon: <FaGithub className="dark:text-portfolio-text" /> },
     { name: "AWS", icon: <FaAws className="text-[#FF9900]" /> },
     { name: "Docker", icon: <FaTools className="text-[#D4AF37]" /> },
   ],
@@ -263,9 +277,7 @@ const CertificateCard = ({ cert, onClick }) => {
             <div className="bg-portfolio-surface/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-portfolio-gold/30 shadow-[0_0_15px_rgba(212,175,55,0.15)] group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-shadow duration-300">
               <span className="text-xs font-bold text-portfolio-gold uppercase tracking-wider">{cert.issuer}</span>
             </div>
-            <div className="bg-portfolio-surface/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-portfolio-border/50">
-              <span className="text-xs font-bold text-portfolio-secondary">{cert.date}</span>
-            </div>
+
           </div>
           <div className="space-y-4 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
             <div>
@@ -547,7 +559,7 @@ const CertificatePreviewModal = ({ certificate, onClose }) => {
               {certificate.issuer}
             </div>
             <h2 className="text-2xl font-bold dark:text-portfolio-text mb-2 leading-tight">{certificate.title}</h2>
-            <p className="text-portfolio-secondary font-mono text-sm">{certificate.date}</p>
+
           </div>
 
           <div className="space-y-4 mt-auto">
@@ -588,9 +600,9 @@ function ProjectSection() {
         setActiveTab('Projects');
       }
     };
-    
+
     if (window.location.hash === '#certificates') {
-        setActiveTab('Certificate');
+      setActiveTab('Certificate');
     }
 
     window.addEventListener('hashchange', handleHashChange);
@@ -824,6 +836,7 @@ function ProjectSection() {
             </div>
           </motion.div>
 
+          <div id="certificates" className="scroll-mt-32 pt-20"></div>
           {/* Certificates Section */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
