@@ -35,9 +35,9 @@ const Home = () => {
 
 
     const stats = [
-        { icon: <FaCode />, value: "3+", title: "TOTAL PROJECTS", description: "Innovative web solutions crafted" , targetId: "projects" },
-        { icon: <FaCertificate />, value: "3+", title: "CERTIFICATES", description: "Professional skills validated" , targetId: "certificates" },
-        { icon: <FaGlobe />, value: "6", title: "MONTHS EXPERIENCE", description: "Continuous learning journey" , targetId: "contact" },
+        { icon: <FaCode />, value: "3+", title: "TOTAL PROJECTS", description: "Innovative web solutions crafted", targetId: "projects" },
+        { icon: <FaCertificate />, value: "3+", title: "CERTIFICATES", description: "Professional skills validated", targetId: "certificates" },
+        { icon: <FaGlobe />, value: "6", title: "MONTHS EXPERIENCE", description: "Continuous learning journey", targetId: "contact" },
     ];
 
     return (
@@ -76,10 +76,10 @@ const Home = () => {
                     <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 1.0, ease: "easeOut" }} className="flex flex-row gap-4 mt-8">
                         <a href="https://github.com/Ayan-2904" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-portfolio-border bg-portfolio-surface/[0.8] bg-portfolio-surface text-portfolio-secondary text-portfolio-text transition-all duration-300 hover:border-portfolio-gold hover:bg-portfolio-surface hover:bg-portfolio-bg hover:shadow-md dark:hover:shadow-[0_0_24px_2px_rgba(212,175,55,0.15)]">
                             <FaGithub className="h-6 w-6 text-portfolio-secondary transition-all duration-300 group-hover:text-portfolio-gold-dark dark:group-hover:text-portfolio-gold" />
-                          </a>
+                        </a>
                         <a href="https://www.linkedin.com/in/ayan-mujawar-558411256/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-portfolio-border bg-portfolio-surface/[0.8] bg-portfolio-surface text-portfolio-secondary text-portfolio-text transition-all duration-300 hover:border-portfolio-gold hover:bg-portfolio-surface hover:bg-portfolio-bg hover:shadow-md dark:hover:shadow-[0_0_24px_2px_rgba(212,175,55,0.15)]">
                             <FaLinkedin className="h-6 w-6 text-portfolio-secondary transition-all duration-300 group-hover:text-portfolio-gold-dark dark:group-hover:text-portfolio-gold" />
-                          </a>
+                        </a>
                     </motion.div>
                 </div>
 
@@ -141,13 +141,13 @@ const Home = () => {
                         <p className="text-2xl dark:text-portfolio-secondary font-moderniz my">Hello, I'm</p>
                         <h3 className="text-4xl font-bold dark:text-portfolio-text my-2 font-moderniz">Ayan Mujawar</h3>
                         <p className="dark:text-portfolio-text/80 text-portfolio-secondary leading-relaxed mt-4 font-cascadia text-justify">
-                            I am a passionate Full Stack Developer and UI/UX Designer and a recent B.Tech graduate in Data Science from KIT's College of Engineering. With past internship experience at New Binary Solutions, I specialize in crafting beautiful user interfaces, building scalable web applications, and integrating AI to solve real-world problems.
+                        I’m a passionate Full Stack Developer and UI/UX Designer, and a recent B.Tech graduate in Computer Science and Engineering (Data Science) from KIT’s College of Engineering Kolhapur. With internship experience at New Binary Solutions, I specialize in building scalable web applications, crafting intuitive user interfaces, and integrating AI to solve real-world problems
                         </p>
                         <div className="my-6 bg-portfolio-surface/50 bg-portfolio-surface border-l-4 border-portfolio-gold-dark p-4 rounded-r-lg italic text-portfolio-text/70 text-portfolio-secondary font-cascadia dark:shadow-none shadow-md">
                             "Whoever strives shall succeed."
                         </div>
                         <div className="flex flex-row sm:flex-row gap-4 mt-8 justify-center md:justify-start items-center">
-                            <ButtonMovingBorder as="a" href="/cv.pdf" download duration={3000} borderRadius="0.75rem" className="bg-portfolio-surface/[0.8] bg-portfolio-surface border border-portfolio-border text-portfolio-text font-semibold flex items-center justify-center gap-2 transition-all duration-300 dark:shadow-none shadow-md hover:shadow-lg dark:hover:shadow-[0_0_24px_8px_rgba(212,175,55,0.15)]">
+                            <ButtonMovingBorder as="a" href="/Ayan_Mujawar.pdf" download duration={3000} borderRadius="0.75rem" className="bg-portfolio-surface/[0.8] bg-portfolio-surface border border-portfolio-border text-portfolio-text font-semibold flex items-center justify-center gap-2 transition-all duration-300 dark:shadow-none shadow-md hover:shadow-lg dark:hover:shadow-[0_0_24px_8px_rgba(212,175,55,0.15)]">
                                 <FaDownload /> Download CV
                             </ButtonMovingBorder>
                             <ButtonMovingBorder as="a" href="#projects" duration={3000} borderRadius="0.75rem" className="bg-portfolio-surface/[0.8] bg-portfolio-surface border border-portfolio-border text-portfolio-text font-semibold flex items-center justify-center gap-2 transition-all duration-300 dark:shadow-none shadow-md hover:shadow-lg dark:hover:shadow-[0_0_24px_8px_rgba(212,175,55,0.15)]">
