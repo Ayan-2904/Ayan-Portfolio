@@ -288,7 +288,7 @@ const CertificateCard = ({ cert, onClick }) => {
                 <FaDownload className="text-sm" />
                 <span className="text-sm font-medium">View Certificate</span>
               </div>
-              <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+              <div className="lg:opacity-0 opacity-100 lg:group-hover:opacity-100 transition-all duration-500 transform lg:translate-x-4 translate-x-0 lg:group-hover:translate-x-0">
                 <div className="bg-portfolio-gold/20 backdrop-blur-md p-2.5 rounded-full border border-portfolio-gold/40 shadow-[0_0_15px_rgba(212,175,55,0.3)]">
                   <FaExternalLinkAlt className="text-portfolio-gold-light text-sm" />
                 </div>
@@ -486,7 +486,7 @@ const ProjectCard = ({ project, onClick }) => {
           >
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-2xl font-bold text-white group-hover:text-portfolio-gold transition-colors drop-shadow-md">{project.title}</h3>
-              <div className="bg-portfolio-gold/20 backdrop-blur-md p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 border border-portfolio-gold/30">
+              <div className="bg-portfolio-gold/20 backdrop-blur-md p-2 rounded-full lg:opacity-0 opacity-100 lg:group-hover:opacity-100 transition-all duration-300 border border-portfolio-gold/30">
                 <FaExternalLinkAlt className="text-portfolio-gold-light" />
               </div>
             </div>
@@ -494,7 +494,7 @@ const ProjectCard = ({ project, onClick }) => {
           </div>
 
           <div
-            className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100 mt-4"
+            className="transform lg:translate-y-8 translate-y-0 lg:group-hover:translate-y-0 transition-transform duration-500 lg:opacity-0 opacity-100 lg:group-hover:opacity-100 mt-4"
             style={{ transform: "translateZ(50px)" }}
           >
             <div className="flex flex-wrap gap-2">
