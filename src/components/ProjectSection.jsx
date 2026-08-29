@@ -47,6 +47,33 @@ const dummyProjects = [
     github: "https://github.com/Ayan-2904/text-to-image",
     image: "/project-images/text_to_image.jpg",
     category: "Web/Apps",
+  },
+  {
+    title: "NEXORA — E-Commerce Marketplace",
+    description: "Designed a 20-screen e-commerce marketplace inspired by modern platforms such as Amazon, covering product discovery, search, filtering, product details, wishlist, comparison, cart, checkout, payment, order tracking, and profile management.",
+    tech: ["Figma", "UI/UX Design"],
+    link: "https://www.figma.com/proto/uAFtqkjc8hWWsmUixA8wcX/abc?node-id=108-2366&p=f&viewport=1219%2C-19%2C0.52&t=xtgizELBKdKKq8CU-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=108%3A2366&show-proto-sidebar=1&page-id=41%3A1571",
+    github: "https://www.figma.com/proto/uAFtqkjc8hWWsmUixA8wcX/abc?node-id=108-2366&p=f&viewport=1219%2C-19%2C0.52&t=xtgizELBKdKKq8CU-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=108%3A2366&show-proto-sidebar=1&page-id=41%3A1571",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
+    category: "UI/UX Design",
+  },
+  {
+    title: "QUICKO — Quick-Commerce Grocery Platform",
+    description: "Designed a 14-screen quick-commerce grocery experience covering location selection, home, search, product listing, product details, offers, cart, checkout, payment, order confirmation, live tracking, and profile.",
+    tech: ["Figma", "UI/UX Design"],
+    link: "https://www.figma.com/proto/uAFtqkjc8hWWsmUixA8wcX/abc?node-id=71-923&p=f&viewport=-612%2C-195%2C0.28&t=yUWm2sVZMAWmSOU0-1&scaling=scale-down&content-scaling=fixed&page-id=41%3A1570",
+    github: "https://www.figma.com/proto/uAFtqkjc8hWWsmUixA8wcX/abc?node-id=71-923&p=f&viewport=-612%2C-195%2C0.28&t=yUWm2sVZMAWmSOU0-1&scaling=scale-down&content-scaling=fixed&page-id=41%3A1570",
+    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800",
+    category: "UI/UX Design",
+  },
+  {
+    title: "VOYARA — Travel Booking Platform",
+    description: "Designed a 16-screen travel booking platform covering destination discovery, search, filters, map/list exploration, property details, reviews, room selection, checkout, trips, wishlist, and account settings.",
+    tech: ["Figma", "UI/UX Design"],
+    link: "https://www.figma.com/proto/uAFtqkjc8hWWsmUixA8wcX/abc?node-id=217-4919&p=f&viewport=-1808%2C211%2C0.12&t=nDUCg5K0uwybjcDe-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=217%3A4919&show-proto-sidebar=1&page-id=0%3A1",
+    github: "https://www.figma.com/proto/uAFtqkjc8hWWsmUixA8wcX/abc?node-id=217-4919&p=f&viewport=-1808%2C211%2C0.12&t=nDUCg5K0uwybjcDe-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=217%3A4919&show-proto-sidebar=1&page-id=0%3A1",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=800",
+    category: "UI/UX Design",
   }
 ];
 
@@ -384,15 +411,17 @@ const ProjectDetailModal = ({ project, onClose }) => {
 
               {/* Assuming GitHub link might be stored in a different field or same link if generic */}
               {/* For now using project.link as fallback, ideally should have github specific field passed */}
-              <a
-                href={project.github || project.link} // Adjust if you have a specific github_url field
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-portfolio-bg bg-portfolio-surface dark:hover:bg-portfolio-surface hover:bg-slate-600 text-portfolio-text font-bold rounded-xl dark:border-portfolio-border border-slate-600 transition-all duration-300 hover:-translate-y-1"
-              >
-                <FaGithub className="text-xl" />
-                <span>Source Code</span>
-              </a>
+              {project.category !== 'UI/UX Design' && (
+                <a
+                  href={project.github || project.link} // Adjust if you have a specific github_url field
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-portfolio-bg bg-portfolio-surface dark:hover:bg-portfolio-surface hover:bg-slate-600 text-portfolio-text font-bold rounded-xl dark:border-portfolio-border border-slate-600 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <FaGithub className="text-xl" />
+                  <span>Source Code</span>
+                </a>
+              )}
             </div>
           </div>
         </div>
