@@ -81,7 +81,7 @@ const dummyProjects = [
 // CERTIFICATE DATA
 // ===================================
 const userCertificates = [
-  {
+{
     title: "AICTE Google Android Developer",
     issuer: "AICTE / Google",
     date: "2024",
@@ -115,6 +115,13 @@ const userCertificates = [
     date: "2024",
     link: "/certificates/Udemy Mathematics-Basics to Advanced for Data Science and Gen AI.pdf",
     image: "/certificate-images/Udemy Mathematics-Basics to Advanced for Data Science and Gen AI.jpg",
+  },
+   {
+    title: "UX User Experience Design",
+    issuer: "Cursa",
+    date: "2024",
+    link: "/certificates/Cursa - UX user experience design.pdf",
+    image: "/certificate-images/Cursa - UX user experience design.jpg",
   },
   {
     title: "Agentic AI",
