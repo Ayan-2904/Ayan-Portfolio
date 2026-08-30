@@ -81,6 +81,13 @@ const dummyProjects = [
 // CERTIFICATE DATA
 // ===================================
 const userCertificates = [
+  {
+    title: "User Interface Design",
+    issuer: "Cursa",
+    date: "2024",
+    link: "/certificates/Cursa User Interface Design.pdf",
+    image: "/certificate-images/Cursa User Interface Design.jpg",
+  },
 {
     title: "AICTE Google Android Developer",
     issuer: "AICTE / Google",
