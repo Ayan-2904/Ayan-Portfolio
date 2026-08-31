@@ -81,6 +81,13 @@ const dummyProjects = [
 // CERTIFICATE DATA
 // ===================================
 const userCertificates = [
+  {
+    title: "Graphic Design for Beginners",
+    issuer: "Cursa",
+    date: "2024",
+    link: "/certificates/Cursa Graphic design for Beginners.pdf",
+    image: "/certificate-images/Cursa Graphic design for Beginners.jpg",
+  },
 {
     title: "AICTE Google Android Developer",
     issuer: "AICTE / Google",
