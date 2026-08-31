@@ -82,13 +82,6 @@ const dummyProjects = [
 // ===================================
 const userCertificates = [
   {
-    title: "Graphic Design for Beginners",
-    issuer: "Cursa",
-    date: "2024",
-    link: "/certificates/Cursa Graphic design for Beginners.pdf",
-    image: "/certificate-images/Cursa Graphic design for Beginners.jpg",
-  },
-{
     title: "AICTE Google Android Developer",
     issuer: "AICTE / Google",
     date: "2024",
@@ -123,14 +116,21 @@ const userCertificates = [
     link: "/certificates/Udemy Mathematics-Basics to Advanced for Data Science and Gen AI.pdf",
     image: "/certificate-images/Udemy Mathematics-Basics to Advanced for Data Science and Gen AI.jpg",
   },
-    {
+  {
     title: "User Interface Design",
     issuer: "Cursa",
     date: "2024",
     link: "/certificates/Cursa User Interface Design.pdf",
     image: "/certificate-images/Cursa User Interface Design.jpg",
   },
-   {
+  {
+    title: "Graphic Design for Beginners",
+    issuer: "Cursa",
+    date: "2024",
+    link: "/certificates/Cursa Graphic design for Beginners.pdf",
+    image: "/certificate-images/Cursa Graphic design for Beginners.jpg",
+  },
+  {
     title: "UX User Experience Design",
     issuer: "Cursa",
     date: "2024",
