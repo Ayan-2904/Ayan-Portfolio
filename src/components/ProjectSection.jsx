@@ -61,7 +61,7 @@ const dummyProjects = [
     title: "QUICKO — Quick-Commerce Grocery Platform",
     description: "Designed a 14-screen quick-commerce grocery experience covering location selection, home, search, product listing, product details, offers, cart, checkout, payment, order confirmation, live tracking, and profile.",
     tech: ["Figma", "UI/UX Design"],
-    link: "https://www.figma.com/proto/uAFtqkjc8hWWsmUixA8wcX/abc?node-id=71-923&p=f&viewport=-612%2C-195%2C0.28&t=yUWm2sVZMAWmSOU0-1&scaling=scale-down&content-scaling=fixed&page-id=41%3A1570",
+    link: "https://www.figma.com/proto/uAFtqkjc8hWWsmUixA8wcX/UIUX-Designs?node-id=282-676&p=f&viewport=25%2C254%2C0.15&t=crjV05vDxV1U5ENl-1&scaling=scale-down&content-scaling=fixed&page-id=41%3A1570",
     github: "https://www.figma.com/proto/uAFtqkjc8hWWsmUixA8wcX/abc?node-id=71-923&p=f&viewport=-612%2C-195%2C0.28&t=yUWm2sVZMAWmSOU0-1&scaling=scale-down&content-scaling=fixed&page-id=41%3A1570",
     image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800",
     category: "UI/UX Design",
