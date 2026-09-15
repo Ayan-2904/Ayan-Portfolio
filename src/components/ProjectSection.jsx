@@ -4,7 +4,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform, useSpring, useMo
 import {
   FaExternalLinkAlt, FaReact, FaNodeJs, FaHtml5, FaCss3Alt,
   FaJsSquare, FaTools, FaFigma, FaGithub, FaTimes, FaDownload,
-  FaFolderOpen, FaCertificate, FaCode
+  FaFolderOpen, FaCertificate, FaCode, FaAngular
   , FaAws
 } from 'react-icons/fa';
 import {
@@ -226,6 +226,7 @@ const userCertificates = [
 
 const techStack = {
   frontend: [
+      { name: "Angular", icon: <FaAngular className="text-[#DD0031]" /> },
     { name: "React.js", icon: <FaReact className="text-[#D4AF37]" /> },
     { name: "HTML5", icon: <FaHtml5 className="text-[#D4AF37]" /> },
     { name: "CSS3", icon: <FaCss3Alt className="text-[#D4AF37]" /> },
