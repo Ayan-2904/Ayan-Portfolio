@@ -4,23 +4,23 @@ import { useTheme } from '../contexts/ThemeContext';
 
 export const StaggeredMenu = ({
     position = 'right',
-    colors = ['#D4AF37', '#E5C65A'], // Cyan/Teal defaults to match site
+    colors = ['#D4AF37', '#E5C65A'],
     items = [],
     socialItems = [],
     displaySocials = true,
     displayItemNumbering = true,
     className,
-    logoUrl = '/src/assets/images/BGZENBGIJObulat.png', // Use site logo default
+    logoUrl = '/src/assets/images/BGZENBGIJObulat.png',
     menuButtonColor = '#fff',
     openMenuButtonColor = '#fff',
     changeMenuColorOnOpen = true,
     isFixed = false,
-    accentColor = '#E5C65A', // Cyan accent
+    accentColor = '#E5C65A',
     closeOnClickAway = true,
     onMenuOpen,
     onMenuClose,
-    isOpen, // Controlled prop
-    toggleRef // Ref to external toggle button if needed (optional)
+    isOpen,
+    toggleRef
 }) => {
     const { theme } = useTheme();
     const [open, setOpen] = useState(false);
