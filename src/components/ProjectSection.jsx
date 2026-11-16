@@ -4,7 +4,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform, useSpring, useMo
 import {
   FaExternalLinkAlt, FaReact, FaNodeJs, FaHtml5, FaCss3Alt,
   FaJsSquare, FaTools, FaFigma, FaGithub, FaTimes, FaDownload,
-  FaFolderOpen, FaCertificate, FaCode, FaAws, FaAngular
+  FaFolderOpen, FaCertificate, FaCode, FaAws
 
 } from 'react-icons/fa';
 import {
@@ -228,7 +228,7 @@ const techStack = {
   frontend: [
 
     { name: "React.js", icon: <FaReact className="text-[#D4AF37]" /> },
-    { name: "Angular", icon: <FaAngular className="text-[#D4AF37]" /> },
+
     { name: "HTML5", icon: <FaHtml5 className="text-[#D4AF37]" /> },
     { name: "CSS3", icon: <FaCss3Alt className="text-[#D4AF37]" /> },
     { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#D4AF37]" /> },
@@ -361,7 +361,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
   const techIcons = {
     "Next.js": <SiNextdotjs />, "React": <FaReact />, "TailwindCSS": <SiTailwindcss />,
     "Framer Motion": " गति ", "Node.js": <FaNodeJs />, "Express": <SiExpress />,
-    "MongoDB": <SiMongodb />, "JWT": "🔑", "Figma": <FaFigma />, "Storybook": "📚", "Angular": <FaAngular />,
+    "MongoDB": <SiMongodb />, "JWT": "🔑", "Figma": <FaFigma />, "Storybook": "📚",
     "JavaScript": <FaJsSquare />, "HTML5": <FaHtml5 />, "CSS3": <FaCss3Alt />,
     "PostgreSQL": <SiPostgresql />, "Vercel": <SiVercel />, "Git & GitHub": <FaGithub />
   };
@@ -488,7 +488,7 @@ const ProjectCard = ({ project, onClick }) => {
   const techIcons = {
     "Next.js": <SiNextdotjs />, "React": <FaReact />, "TailwindCSS": <SiTailwindcss />,
     "Framer Motion": " गति ", "Node.js": <FaNodeJs />, "Express": <SiExpress />,
-    "MongoDB": <SiMongodb />, "JWT": "🔑", "Figma": <FaFigma />, "Storybook": "📚", "Angular": <FaAngular />
+    "MongoDB": <SiMongodb />, "JWT": "🔑", "Figma": <FaFigma />, "Storybook": "📚"
   };
 
   return (
